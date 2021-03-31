@@ -7,6 +7,7 @@ class BagIterator
 	
 private:
 	const Bag& bag;
+	DoublyLinkedElement* current_element;
 	//TODO  - Representation
 
 	BagIterator(const Bag& c);

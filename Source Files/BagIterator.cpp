@@ -7,28 +7,34 @@ using namespace std;
 
 BagIterator::BagIterator(const Bag& c): bag(c)
 {
-	//TODO - Implementation
+    this->current_element = bag.elements->head;
 }
 
+
 void BagIterator::first() {
-	//TODO - Implementation
+    this->current_element = this->bag.elements->head;
 }
 
 
 void BagIterator::next() {
-	//TODO - Implementation
+	if(!this->valid())
+	    throw exception();
+	else
+	    this->current_element = this->current_element->next_element;
 }
 
 
 bool BagIterator::valid() const {
-	//TODO - Implementation
-	return false;
+	if (this->current_element == nullptr)
+	    return false;
+	return true;
 }
-
 
 
 TElem BagIterator::getCurrent() const
 {
-	//TODO - Implementation
-	return NULL_TELEM 
+	if(this->valid())
+	    return this->current_element->element;
+	else
+	    throw exception();
 }
