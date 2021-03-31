@@ -9,17 +9,24 @@ DoublyLinkedList::DoublyLinkedList(){
     this->tail = nullptr;
 }
 
-//void DoublyLinkedList::add_to_first_position(DoublyLinkedElement **head, TElem element)
-//{
-//    DoublyLinkedElement* new_element = new DoublyLinkedElement();
-//    new_element->element = element;
-//    //the first element doesn't have an element before it, so:
-//    new_element->previous_element = nullptr;
-//    new_element->next_element = (*head);
-//    if((*head) != nullptr)
-//        (*head)->previous_element = new_element;
-//    (*head) = new_element;
-//}
+void DoublyLinkedList::add_to_first_position(TElem element)
+{
+    DoublyLinkedElement* new_element = new DoublyLinkedElement();
+    new_element->element = element;
+    //the first element doesn't have an element before it, so:
+    new_element->previous_element = nullptr;
+    new_element->next_element = this->head;
+    if(this->head == nullptr)
+    {
+        this->head = new_element;
+        this->tail = new_element;
+    }
+    else
+    {
+        this->head->next_element = this->head;
+        this->head = new_element;
+    }
+}
 
 bool DoublyLinkedList::delete_element(TElem element)
 {
@@ -60,7 +67,7 @@ void DoublyLinkedList::insert_on_position(int position, TElem element)
         return;
     else if (position==0)
     {
-        //not_yet_implemented
+        add_to_first_position(element);
         return;
     }
     else{

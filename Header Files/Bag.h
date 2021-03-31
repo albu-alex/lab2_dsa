@@ -20,6 +20,7 @@ class DoublyLinkedList
         DoublyLinkedList();
         ~DoublyLinkedList();
         //void add_to_first_position(DoublyLinkedElement** head, TElem element);
+        void add_to_first_position(TElem element);
         void insert_on_position(int position, TElem element);
         void add_to_last_position(TElem element);
         bool delete_element(TElem element);
