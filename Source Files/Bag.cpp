@@ -27,6 +27,7 @@ void DoublyLinkedList::add_to_first_position(TElem element)
         this->head = new_element;
     }
 }
+//Complexity: Theta(1)
 
 bool DoublyLinkedList::delete_element(TElem element)
 {
@@ -34,8 +35,12 @@ bool DoublyLinkedList::delete_element(TElem element)
     current_element = this->head;
     while(current_element!= nullptr && current_element->element!=element)
         current_element = current_element->next_element;
-    //DoublyLinkedElement* deleted_element = current_element;
     if(current_element != nullptr) {
+        if (current_element->frequency > 1)
+        {
+            current_element->frequency--;
+            return true;
+        }
         if (current_element == this->head) {
             if (current_element == this->tail) {
                 this->head = nullptr;
@@ -60,6 +65,7 @@ bool DoublyLinkedList::delete_element(TElem element)
     }
     return false;
 }
+//Complexity: O(n)
 
 void DoublyLinkedList::insert_on_position(int position, TElem element)
 {
@@ -97,21 +103,28 @@ void DoublyLinkedList::insert_on_position(int position, TElem element)
 
 void DoublyLinkedList::add_to_last_position(TElem element)
 {
+    DoublyLinkedElement *current_element;
+    current_element = this->head;
+    while (current_element != nullptr && current_element->element != element)
+        current_element = current_element->next_element;
+    if (current_element != nullptr) {
+        current_element->frequency++;
+        return;
+    }
     DoublyLinkedElement* new_element = new DoublyLinkedElement();
     new_element->previous_element = this->tail;
     new_element->element = element;
     new_element->next_element = nullptr;
-    if(this->head == nullptr)
-    {
+    if (this->head == nullptr) {
         this->head = new_element;
         this->tail = new_element;
-    }
-    else
-    {
+    } else {
         this->tail->next_element = new_element;
         this->tail = new_element;
     }
+    new_element->frequency=1;
 }
+//Complexity: O(n)
 
 DoublyLinkedList::~DoublyLinkedList(){;}
 
@@ -141,17 +154,24 @@ bool Bag::search(TElem elem) const {
 //Complexity: O(n)
 
 int Bag::nrOccurrences(TElem elem) const {
-	//TODO - Implementation
-	return 0; 
+    DoublyLinkedElement *current_element;
+    current_element = this->elements->head;
+    while (current_element != nullptr && current_element->element != elem)
+        current_element = current_element->next_element;
+	if(current_element == nullptr)
+	    return 0;
+    return current_element->frequency;
 }
+//Complexity: O(n)
 
 
 int Bag::size() const {
-	int size = 0;
+	int size = 0,frequency;
 	DoublyLinkedElement* current_element;
 	current_element = this->elements->head;
 	while(current_element != nullptr) {
-        size++;
+        frequency = current_element->frequency;
+	    size+=frequency;
         current_element = current_element->next_element;
     }
 	return size;
@@ -164,13 +184,15 @@ bool Bag::isEmpty() const {
         return true;
 	return false;
 }
+//Complexity: O(1)
 
 BagIterator Bag::iterator() const {
 	return BagIterator(*this);
 }
+//Complexity: O(1)
 
 
 Bag::~Bag() {
 	delete this->elements;
 }
-
+//Complexity: O(1)

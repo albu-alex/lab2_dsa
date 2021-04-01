@@ -18,12 +18,12 @@ void testAll() {
 	assert(b.size() == 7);
 	assert(b.search(10) == true);
 	assert(b.search(16) == false);
-//	assert(b.nrOccurrences(1) == 2);
-//	assert(b.nrOccurrences(7) == 1);
+	assert(b.nrOccurrences(1) == 2);
+	assert(b.nrOccurrences(7) == 1);
 	assert(b.remove(1) == true);
 	assert(b.remove(6) == false);
 	assert(b.size() == 6);
-//	assert(b.nrOccurrences(1) == 1);
+	assert(b.nrOccurrences(1) == 1);
 	BagIterator it = b.iterator();
 	it.first();
 	while (it.valid()) {

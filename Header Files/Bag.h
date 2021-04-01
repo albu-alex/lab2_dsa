@@ -9,6 +9,7 @@ class DoublyLinkedElement
 {
     public:
     TElem element;
+    int frequency=0;
     DoublyLinkedElement* next_element;
     DoublyLinkedElement* previous_element;
 };
