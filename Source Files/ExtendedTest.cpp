@@ -15,7 +15,7 @@ void testIteratorSteps(Bag& bag) {
 		count++;
 		bi.next();
 	}
-	//assert(count == bag.size());
+	assert(count == bag.size());
 }
 
 void testCreate() {
@@ -333,7 +333,7 @@ void testQuantity() {
 	Bag b;
 	for (int i = 10; i >= 1; i--) {
 		for (int j = -30000; j < 30000; j = j + i) {
-			b.add(j);
+		    b.add(j);
 		}
 	}
 	assert(b.size() == 175739);
@@ -352,7 +352,8 @@ void testQuantity() {
 		it.next();
 	}
 	assert(it.valid() == false);
-	for (int i = 0; i < 10; i++) { 
+	for (int i = 0; i < 10; i++) {
+	    cout<<i<<endl;
 		for (int j = 40000; j >= -40000; j--) {
 			b.remove(j);
 		}

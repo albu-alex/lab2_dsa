@@ -8,6 +8,7 @@ class BagIterator
 private:
 	const Bag& bag;
 	DoublyLinkedElement* current_element;
+	int current_frequency;
 	//TODO  - Representation
 
 	BagIterator(const Bag& c);
