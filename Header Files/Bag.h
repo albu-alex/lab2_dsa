@@ -33,7 +33,6 @@ class Bag {
 
 private:
     DoublyLinkedList* elements;
-    DoublyLinkedElement* current_element;
 public:
 	//constructor
 	Bag();
@@ -46,10 +45,10 @@ public:
 	bool remove(TElem e);
 
 	//checks if an element appearch is the bag
-	bool search(TElem e);
+	bool search(TElem e) const;
 
 	//returns the number of occurrences for an element in the bag
-	int nrOccurrences(TElem e);
+	int nrOccurrences(TElem e) const;
 
 	//returns the number of elements from the bag
 	int size() const;
