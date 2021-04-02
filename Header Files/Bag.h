@@ -16,6 +16,7 @@ class DoublyLinkedElement
 class DoublyLinkedList
 {
     public:
+        int size;
         DoublyLinkedElement* head;
         DoublyLinkedElement* tail;
         DoublyLinkedList();

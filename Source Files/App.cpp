@@ -11,6 +11,6 @@ int main() {
 	cout << "Short tests over" << endl;
 	testAllExtended();
 
-	cout << "All test over" << endl;
+	cout << "All tests over" << endl;
 	return 0;
 }
