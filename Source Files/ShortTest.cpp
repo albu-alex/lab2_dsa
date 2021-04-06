@@ -2,6 +2,7 @@
 #include <assert.h>
 #include "Bag.h"
 #include "BagIterator.h"
+#include <iostream>
 
 
 void testAll() { 
@@ -30,4 +31,27 @@ void testAll() {
 		TElem e = it.getCurrent();
 		it.next();
 	}
+	//it.remove();
+	it.first();
+	assert(it.remove() == 5);
+    it.first();
+	while (it.valid()) {
+        TElem e = it.getCurrent();
+        std::cout<<e<<std::endl;
+        it.next();
+    }
+	std::cout<<"\n\n\n";
+	it.first();
+	assert(b.size() == 5);
+	it.next();
+	it.next();
+	it.next();
+	it.next();
+	assert(it.remove() == -3);
+    it.first();
+    while (it.valid()) {
+        TElem e = it.getCurrent();
+        std::cout<<e<<std::endl;
+        it.next();
+    }
 }

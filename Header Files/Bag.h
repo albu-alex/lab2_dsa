@@ -55,7 +55,7 @@ public:
 	int size() const;
 
 	//returns an iterator for this bag
-	BagIterator iterator() const;
+	BagIterator iterator();
 
 	//checks if the bag is empty
 	bool isEmpty() const;

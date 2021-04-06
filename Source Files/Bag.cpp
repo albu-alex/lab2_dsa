@@ -149,7 +149,7 @@ void DoublyLinkedList::insert_on_position(int position, TElem element)
         }
     }
 }
-//Function not used; Complexity: O(n) , Best case: Theta(n), Worst case: Theta(n)
+//Function not used; Complexity: O(n) , Best case: Theta(1), Worst case: Theta(n)
 
 void DoublyLinkedList::add_to_last_position(TElem element)
 {
@@ -255,7 +255,7 @@ bool Bag::isEmpty() const {
 //Complexity: Theta(1)
 
 
-BagIterator Bag::iterator() const {
+BagIterator Bag::iterator() {
 	return BagIterator(*this);
 }
 //Complexity: Theta(1)
